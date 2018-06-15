@@ -24,6 +24,6 @@ app.use(function(req, res, next) {
 
 
 require('./services/movie.service.server')(app);
-
+require('./services/form.service.server')(app);
 
 app.listen(3000);
