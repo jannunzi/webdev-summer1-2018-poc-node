@@ -5,6 +5,15 @@ module.exports = function (app) {
 
   app.post('/api/form', saveForm);
   app.get('/api/form', findAllForms);
+  app.get('/api/form/:formId', findFormById);
+
+  function findFormById(req, res) {
+    var formId = req.params['formId'];
+    formModel.findFormById(formId)
+      .then(function (form) {
+        res.json(form);
+      });
+  }
 
   function findAllForms(req, res) {
     formModel
